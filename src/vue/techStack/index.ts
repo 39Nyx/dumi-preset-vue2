@@ -5,14 +5,12 @@ import { join } from 'path';
 import { VueJSXTechStack } from './jsx';
 import { VueSfcTechStack } from './sfc';
 
-const COMPILE_FILENAME = 'compiler.mjs';
 const RENDERER_FILENAME = 'renderer.mjs';
-const PREFLIGHT_FILENAME = 'preflight.mjs';
 
 export default function registerTechStack(api: IApi) {
   const vueConfig = api.userConfig?.vue;
 
-  const pkgPath = getPkgPath('@dumijs/preset-vue', api.cwd);
+  const pkgPath = getPkgPath('preset-vue2', api.cwd);
 
   const libPath = join(pkgPath, '/lib');
 
@@ -20,24 +18,13 @@ export default function registerTechStack(api: IApi) {
   // so that the correct dependencies can be referenced.
   api.onGenerateFiles(() => {
     api.writeTmpFile({
-      path: COMPILE_FILENAME,
-      content: fsExtra.readFileSync(join(libPath, COMPILE_FILENAME), 'utf8'),
-    });
-    api.writeTmpFile({
       path: RENDERER_FILENAME,
       content: fsExtra.readFileSync(join(libPath, RENDERER_FILENAME), 'utf8'),
-    });
-    api.writeTmpFile({
-      path: PREFLIGHT_FILENAME,
-      content: fsExtra.readFileSync(join(libPath, PREFLIGHT_FILENAME), 'utf8'),
     });
   });
 
   const runtimeOpts = {
-    compilePath: getPluginPath(api, COMPILE_FILENAME),
-    rendererPath: getPluginPath(api, RENDERER_FILENAME),
-    preflightPath: getPluginPath(api, PREFLIGHT_FILENAME),
-    pluginPath: join(libPath, 'runtimePlugin.mjs'),
+    rendererPath: getPluginPath(api, RENDERER_FILENAME)
   };
 
   // mark @babel/standalone as external
