@@ -8,7 +8,7 @@ import {
   compileTemplate,
   parse,
   rewriteDefault,
-} from 'vue/compiler-sfc';
+} from '@vue/compiler-sfc';
 
 export interface CompileOptions {
   id: string;
