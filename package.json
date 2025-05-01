@@ -1,5 +1,5 @@
 {
-  "name": "@dumijs/preset-vue",
+  "name": "preset-vue2",
   "version": "2.4.14",
   "description": "Vue support plugins for dumi",
   "keywords": [
@@ -24,20 +24,25 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@dumijs/vue-meta": "workspace:*",
+    "@dumijs/vue-meta": "^2.4.14",
     "@types/hash-sum": "^1.0.0",
     "@umijs/bundler-webpack": "^4.0.81",
+    "@vue/compiler-sfc": "^3.5.13",
     "codesandbox-import-utils": "^2.2.3",
     "compare-versions": "^6.1.0",
+    "dumi-assets-types": "^2.4.14",
+    "element-ui": "^2.15.14",
     "hash-sum": "^2.0.0",
-    "vue": "^3.3.4",
-    "vue-loader": "^17.0.1"
+    "vue": "^2.7.14",
+    "vue-loader": "^17.0.1",
+    "vue-template-compiler": "2.7.14"
   },
   "devDependencies": {
     "@types/babel__core": "^7.20.5",
     "@types/babel__standalone": "^7.1.7",
+    "@umijs/core": "^4.4.10",
     "@vue/babel-plugin-jsx": "^1.1.6",
-    "dumi": "workspace:*",
+    "dumi": "^2.4.20",
     "father": "^4.1.9",
     "tsup": "^8.0.1"
   },
