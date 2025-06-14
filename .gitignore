@@ -4,3 +4,4 @@
 metafile-*.json
 .idea
 lib
+compiled
